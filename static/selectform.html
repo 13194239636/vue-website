@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+</head>
+<style>
+	.selectform{
+		display: inline-block;
+	}
+	.selected_show{
+		height: 25px;
+		line-height: 25px;
+		padding:0px 20px 0px 10px;
+		font-size: 14px;
+		border:1px solid #e3e3e3;
+		border-radius: 3px;
+		cursor: pointer;
+	}
+	.selectform span{
+		float: right;
+		line-height: 25px;
+		padding-right:6px;
+		color:#e3e3e3;
+		cursor: pointer;
+	}
+	.selectform ul{
+		border:1px solid #e3e3e3;
+		display: none;
+	}
+	.selectform ul.show{
+		display: block
+	}
+	.selectform ul li{
+		line-height: 25px;
+		padding:0px 20px 0px 10px;
+		cursor: pointer;
+	}
+	.selectform ul li:hover{
+		background:#e3e3e3;
+	}
+</style>
+<body>
+	<div class="selectform">
+		<span>&darr;</span>
+		<div class="selected_show">dsadsdasdass</div>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+</body>
+<script>
+	window.onload = function(){	
+		var oBut = document.getElementsByClassName("selectform")[0];
+		var oUl = document.getElementsByTagName("ul")[0];
+		oBut.onclick = function(){
+			oUl.classList.toggle("show");
+		}
+	}
+</script>
+</html>

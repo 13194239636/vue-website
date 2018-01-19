@@ -1,0 +1,58 @@
+<template>
+	<table>
+		<tr>
+			<td>安全安保</td>
+			<td>办公文教</td>
+			<td>彩票</td>
+			<td>车辆物流</td>
+			<td>成人用品</td>
+			<td>出版传媒</td>
+			<td>电脑硬件</td>
+		</tr>
+		<tr>
+			<td>电子电工</td>
+			<td>房地产建筑装修</td>
+			<td>分类平台</td>
+			<td>服装鞋帽</td>
+			<td>箱包饰品</td>
+			<td>化工原料制品</td>
+			<td>机械设备</td>
+		</tr>
+		<tr>
+			<td>家庭日用品</td>
+			<td>家用电器</td>
+			<td>教育培训</td>
+			<td>节能环保</td>
+			<td>金融服务</td>
+			<td>礼品</td>
+			<td>旅游住宿</td>
+		</tr>
+		<tr>
+			<td>美容化妆</td>
+			<td>母婴护理</td>
+			<td>农林牧渔</td>
+			<td>软件</td>
+			<td>商务服务</td>
+			<td>生活服务</td>
+			<td>食品保健品</td>
+		</tr>
+		<tr>
+			<td>手机数码</td>
+			<td>通讯服务设备</td>
+			<td>招商加盟</td>
+			<td>网络服务</td>
+			<td>医疗服务</td>
+			<td>游戏</td>
+			<td>运动休闲娱乐</td>
+		</tr>
+	</table>
+</template>
+<script>
+	
+</script>
+<style>
+	table tr td{
+		padding:15px;
+		border:1px solid #e3e3e3;
+	}
+</style>

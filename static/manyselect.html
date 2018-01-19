@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+</head>
+<style>
+.radio ul li{
+	float: left;
+	line-height: 25px;
+	padding:0px 8px;
+	margin-right:5px;
+	background: white;
+	border:1px solid #e3e3e3;
+	border-radius: 3px;
+	cursor: pointer;
+	font-size: 14px;
+}
+.radio ul li.selected{
+	border-color:#4fc08d;
+	background: #4fc08d;
+	color:white;
+}
+</style>
+<body>
+	<div class="radio">
+		<ul>
+			<li>lalal</li>
+			<li>lalalsdasd</li>
+			<li>lalalsdadasdasds</li>
+		</ul>
+	</div>
+</body>
+<script>
+	window.onload = function(){	
+		var oRadio = document.getElementsByClassName("radio")[0 ];
+		var oLi = oRadio.getElementsByTagName("li");
+		for(let i=0;i<oLi.length;i++){
+			oLi[i].addEventListener('click',function(){
+				this.classList.toggle("selected");
+			},false);
+		}
+	}
+</script>
+</html>

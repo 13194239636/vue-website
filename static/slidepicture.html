@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+</head>
+<style>
+	*{
+		margin:0px;
+		padding:0px;
+	}
+	.container{
+		width:800px;
+		height:400px;
+		overflow: hidden;
+		position: relative;
+	}
+	.container .slide-ul{
+		width:3200px;
+		transition: linear .3s;
+	}
+	.container .slide-ul li{
+		float:left;
+		width:800px;
+		height:400px;
+		overflow: hidden;
+	}
+	.container .slide-ul li img{
+		width:100%;
+		height:100%;
+	}
+	.container .controlbar{
+		position: absolute;
+		right: 0px;
+		left:0px;
+		bottom:0px;
+		background:black;
+		opacity: 0.5;
+		padding:0px 15px;
+		height:30px;
+		line-height: 30px;
+	}
+	.container .controlbar ul{
+		float: right;
+	}
+	.container .controlbar li{
+		float: left;
+		width:10px;
+		height:10px;
+		text-align: center;
+		color:white;
+		margin-right:10px;
+		cursor:pointer;
+	}
+	.container .controlbar li:nth-child(1){
+		display: none;
+	}
+	.container .controlbar li:hover{
+		color:red;
+	}
+	.container .controlbar li.selected{
+		text-decoration: underline;
+	}
+</style>
+<body>
+	<div class="container">
+		<ul class="slide-ul">
+			<li><img src="../src/assets/slideShow/pic1.jpg"></li>
+			<li><img src="../src/assets/slideShow/pic2.jpg"></li>
+			<li><img src="../src/assets/slideShow/pic3.jpg"></li>
+			<li><img src="../src/assets/slideShow/pic4.jpg"></li>
+		</ul>
+		<div class="controlbar">
+			<ul>
+				<li><</li>
+				<li class="selected">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script>
+	window.onload = function(){
+		var oSlideUl = document.getElementsByClassName("slide-ul")[0];
+		var oCotrolBar = document.getElementsByClassName("controlbar")[0];
+		var oLi = oSlideUl.getElementsByTagName("li");
+		var oCotrolBarLi = oCotrolBar.getElementsByTagName("li");
+		var mL = 0;
+		var decrease=1;
+		var picWidth = oLi[Math.floor(Math.random()*oLi.length)].offsetWidth;
+
+		var timer = setInterval(function(){
+			controlmL();
+			controlShow();
+			undatedSelect();
+			oSlideUl.style.marginLeft = mL+"px";
+		},4000);
+
+		for(let i=0;i<oCotrolBarLi.length;i++){
+			oCotrolBarLi[i].addEventListener('click',function(){
+				clearInterval(timer);
+				switch(i){
+					case 0:
+						mL+=picWidth;
+						break;
+					case 1:case 2:case 3:case 4:
+						mL=(i-1)*(-800);
+						break;
+					case 5:
+						mL-=picWidth;
+					default:;
+				}
+				controlShow();
+				undatedSelect();
+				oSlideUl.style.marginLeft = mL+"px";
+			timer = setInterval(function(){
+				controlmL();
+				controlShow();
+				undatedSelect();
+				oSlideUl.style.marginLeft = mL+"px";
+			},4000);
+			},false);
+		}
+		function controlmL(){
+			if(mL==-picWidth*(oLi.length-1)){
+				decrease=0;
+			}
+			if(mL==0){
+				decrease=1;
+			}
+			mL=decrease==1?mL-picWidth:mL+picWidth;
+		}
+		function controlShow(){
+			if(mL==-picWidth*(oLi.length-1)){
+				oCotrolBarLi[5].style.display="none";
+			}
+			else{
+				oCotrolBarLi[5].style.display="block";
+			}
+			if(mL==0){
+				oCotrolBarLi[0].style.display="none";
+			}
+			else{
+				oCotrolBarLi[0].style.display="block";
+			}
+		}
+		function undatedSelect(){
+			for(let i=0;i<oCotrolBarLi.length;i++){
+				oCotrolBarLi[i].classList.remove("selected");
+			}
+			oCotrolBarLi[(mL/-800)+1].classList.add("selected");
+		}
+	}
+</script>
+</html>

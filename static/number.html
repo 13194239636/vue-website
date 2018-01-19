@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="reset.css">
+</head>
+<style>
+.number_selecter{
+	margin:auto;
+	width:84px;
+	height:27px;
+	display: flex;
+	justify-content:space-around;
+	align-items: center; 
+	border:1px solid gray;
+}
+.number_selecter div{
+	width:27px;
+	line-height: 27px;
+	text-align: center;
+	font-weight: bold;
+}
+.number_selecter .decrease{
+	border-right:1px solid gray;
+	cursor: pointer;
+}
+.number_selecter .number_show{
+	width:30px;
+	line-height: 23px;
+	font-size: 12px;
+}
+.number_selecter .increase{
+	border-left:1px solid gray;
+	cursor: pointer;
+}
+</style>
+<body>
+	<div class="number_selecter">
+		<div class="decrease">-</div>
+		<div class="number_show">1</div>
+		<div class="increase">+</div>
+	</div>
+</body>
+<script>
+	window.onload = function(){	
+	}
+</script>
+</html>
